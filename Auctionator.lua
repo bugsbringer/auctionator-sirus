@@ -138,6 +138,10 @@ local roundPriceDown, ToTightTime, FromTightTime, monthDay;
 
 -----------------------------------------
 
+local oldItemPrice;
+
+-----------------------------------------
+
 function Atr_RegisterEvents(self)
 
 	self:RegisterEvent("VARIABLES_LOADED");
@@ -2394,6 +2398,14 @@ function Atr_UpdateUI ()
 	end
 	
 	if (Atr_IsTabSelected(SELL_TAB)) then
+		if (not needsUpdate) then
+			local itemPrice = MoneyInputFrame_GetCopper(Atr_ItemPrice);
+			if (itemPrice ~= oldItemPrice) then
+				needsUpdate = true;
+				oldItemPrice = itemPrice;
+			end
+		end
+		
 		Atr_UpdateUI_SellPane (needsUpdate);
 	end
 
@@ -2495,8 +2507,8 @@ end
 
 function Atr_SetDepositText()
 			
-	_, auctionCount = Atr_GetSellItemInfo();
-	
+	local _, auctionCount, itemLink = Atr_GetSellItemInfo();
+	local _, _, _, _, _, itemType = GetItemInfo(itemLink);
 	if (auctionCount > 0) then
 		local duration = UIDropDownMenu_GetSelectedValue(Atr_Duration);
 	
@@ -2505,8 +2517,14 @@ function Atr_SetDepositText()
 		if (Atr_Batch_NumAuctions:GetNumber() > 1) then
 			numAuctionString = "  |cffff55ff x"..Atr_Batch_NumAuctions:GetNumber();
 		end
-		
-		Atr_Deposit_Text:SetText (ZT("Deposit")..":    "..zc.priceToMoneyString(deposit1 * Atr_StackSize(), true)..numAuctionString);
+
+		local deposit = deposit1 * Atr_StackSize();
+		local itemPrice = MoneyInputFrame_GetCopper(Atr_ItemPrice);
+		if (itemPrice <= 5000000 and itemType == Atr_GetAuctionClasses()[6]) then
+			deposit = deposit + (itemPrice * 0.2);
+		end
+
+		Atr_Deposit_Text:SetText (ZT("Deposit")..":    "..zc.priceToMoneyString(deposit, true)..numAuctionString);
 	else
 		Atr_Deposit_Text:SetText ("");
 	end
