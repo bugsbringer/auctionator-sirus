@@ -380,7 +380,7 @@
 
 
 			<EditBox name="Atr_Search_Box" autoFocus="false" inherits="InputBoxTemplate">
-				<Size><AbsDimension x="260" y="20"/></Size>
+				<Size><AbsDimension x="250" y="20"/></Size>
 				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-45"/></Offset></Anchor></Anchors>
 				<FontString inherits="ChatFontNormal" bytes="64"/>
 
@@ -408,10 +408,10 @@
 			</EditBox>
 
 			<Button name="Atr_Search_Button" text="Search" inherits="UIPanelButtonTemplate" >
-				<Size><AbsDimension x="80" y="22"/>	</Size>
+				<Size><AbsDimension x="64" y="20"/>	</Size>
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="Atr_Search_Box" relativePoint="RIGHT">
-						<Offset><AbsDimension x="15" y="0"/></Offset>
+						<Offset><AbsDimension x="4" y="0"/></Offset>
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -422,7 +422,7 @@
 			</Button>
 
 			<Button name="Atr_Adv_Search_Button" text="+" inherits="UIPanelButtonTemplate" >
-				<Size><AbsDimension x="24" y="18"/>	</Size>
+				<Size><AbsDimension x="20" y="20"/>	</Size>
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="Atr_Search_Button" relativePoint="RIGHT">
 						<Offset><AbsDimension x="4" y="0"/></Offset>
@@ -436,8 +436,8 @@
 			</Button>
 
 			<Button name="Auctionator1Button" inherits="UIPanelButtonTemplate" text="Options">
-				<Size><AbsDimension x="70" y="18"/>	</Size>
-				<Anchors><Anchor point="LEFT" relativeTo="Atr_Search_Button" relativePoint="RIGHT"><Offset><AbsDimension x="165" y="0"/></Offset></Anchor></Anchors>
+				<Size><AbsDimension x="70" y="20"/>	</Size>
+				<Anchors><Anchor point="LEFT" relativeTo="Atr_Search_Button" relativePoint="RIGHT"><Offset><AbsDimension x="200" y="0"/></Offset></Anchor></Anchors>
 				<Scripts>
 					<OnClick>
 						InterfaceOptionsFrame_OpenToCategory ("Auctionator");
@@ -449,7 +449,7 @@
 			</Button>
 			
 			<Button name="Atr_FullScanButton" inherits="UIPanelButtonTemplate" text="Full Scan...">
-				<Size><AbsDimension x="74" y="18"/>	</Size>
+				<Size><AbsDimension x="70" y="20"/>	</Size>
 				<Anchors><Anchor point="RIGHT" relativeTo="Auctionator1Button" relativePoint="LEFT"><Offset><AbsDimension x="-2" y="0"/></Offset></Anchor></Anchors>
 				<Scripts>
 					<OnClick>Atr_ShowFullScanFrame();</OnClick>
