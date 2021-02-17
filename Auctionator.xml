@@ -382,7 +382,7 @@
 			<EditBox name="Atr_Search_Box" autoFocus="false" inherits="InputBoxTemplate">
 				<Size><AbsDimension x="250" y="20"/></Size>
 				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-45"/></Offset></Anchor></Anchors>
-				<FontString inherits="ChatFontNormal" bytes="64"/>
+				<FontString inherits="ChatFontNormal" bytes="256"/>
 
 				<Scripts>
 					<OnEnterPressed>
