@@ -236,4 +236,7 @@ AtrL["Show auction house prices in tooltips"] = "Отображать в под�
 AtrL["Show disenchant prices in tooltips"] = "Отображать в подсказках стоимость распыления"
 AtrL["Show vendor prices in tooltips"] = "Отображать в подсказках цену у торговца"
 
+AtrL["Too many results\n\nPlease narrow your search"] = "Слишком много результатов\n\nПожалуйста, сузьте область поиска"
+AtrL["Spanish translation courtesy of %s"] = "Перевод на испанский: %s"
+
 end
