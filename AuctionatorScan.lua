@@ -33,6 +33,10 @@ AtrSearch.__index = AtrSearch;
 
 -----------------------------------------
 
+local PAGE_RESULTS_COUNT = 50
+
+-----------------------------------------
+
 function Atr_NewSearch (itemName, exact, rescanThreshold, callback)
 
 	local srch = {};
@@ -305,8 +309,9 @@ function AtrSearch:AnalyzeResultsPage()
 		return true;  -- done
 	end
 
-	if (totalAuctions >= 50) then
-		Atr_SetMessage (string.format (ZT("Scanning auctions: page %d"), self.current_page));
+	if (totalAuctions >= PAGE_RESULTS_COUNT) then
+		local pages_count = math.ceil(totalAuctions / PAGE_RESULTS_COUNT);
+		Atr_SetMessage (string.format (ZT("Scanning auctions: page %d/%d"), self.current_page, pages_count));
 	end
 
 	-- analyze
