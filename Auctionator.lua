@@ -1084,17 +1084,6 @@ function Atr_CreateAuction_OnClick ()
 	local duration				= UIDropDownMenu_GetSelectedValue(Atr_Duration);
 	local stackStartingPrice	= MoneyInputFrame_GetCopper(Atr_StartingPrice);
 	local stackBuyoutPrice		= MoneyInputFrame_GetCopper(Atr_StackPrice);
-
-	if (gJustPosted_StackSize == 1 and gCurrentPane.fullStackSize > 1) then
-	
-		local scan = gCurrentPane.activeScan;
-		
-		if (scan and scan.numYourSingletons + gJustPosted_NumStacks > 40) then
-			local s = ZT("You may have at most 40 single-stack (x1)\nauctions posted for this item.\n\nYou already have %d such auctions and\nyou are trying to post %d more.");
-			Atr_Error_Display (string.format (s, scan.numYourSingletons, gJustPosted_NumStacks));
-			return;
-		end
-	end
 	
 	Atr_Memorize_Stacking_If();
 
